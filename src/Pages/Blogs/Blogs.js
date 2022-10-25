@@ -189,7 +189,7 @@ const Blogs = () => {
                     <div className="overflow-hidden transition-shadow duration-300 bg-slate-700 text-white rounded">
                         <Link to="" aria-label="Article">
                             <img
-                                src="https://images.pexels.com/photos/2123755/pexels-photo-2123755.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+                                src="https://res.cloudinary.com/practicaldev/image/fetch/s--E0vtJqHL--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/7is2fvy499tnuhv8p66v.png"
                                 className="object-cover w-full h-64 rounded"
                                 alt=""
                             />
@@ -204,11 +204,11 @@ const Blogs = () => {
                                 className="inline-block mb-3 text-red-300 transition-colors duration-200 hover:text-deep-purple-accent-700"
                             >
                                 <p className="text-2xl font-bold leading-5">
-                                    Explore the beautiful
+                                    How does the private route work?
                                 </p>
                             </Link>
                             <p className="mb-4">
-                                Sed ut perspiciatis unde omnis iste natus error sit sed quia
+                                The private route component is similar to the public route, the only change is that redirect URL and authenticate condition. If the user is not authenticated he will be redirected to the login page and the user can only access the authenticated routes If he is authenticated (Logged in).rror sit sed quia
                                 consequuntur magni voluptatem doloremque.
                             </p>
                             <div className="flex space-x-4">
