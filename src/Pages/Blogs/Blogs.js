@@ -99,7 +99,7 @@ const Blogs = () => {
                     <div className="overflow-hidden transition-shadow duration-300 bg-slate-700 text-white rounded">
                         <Link to="" aria-label="Article">
                             <img
-                                src="https://images.pexels.com/photos/1576937/pexels-photo-1576937.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
+                                src="https://firebasetutorials.com/wp-content/uploads/2019/12/Why-firebase-is-used-1024x680.png"
                                 className="object-cover w-full h-64 rounded"
                                 alt=""
                             />
@@ -113,11 +113,10 @@ const Blogs = () => {
                                 aria-label="Article"
                                 className="inline-block mb-3 text-red-300 transition-colors duration-200 hover:text-deep-purple-accent-700"
                             >
-                                <p className="text-2xl font-bold leading-5">Conquer the World</p>
+                                <p className="text-2xl font-bold leading-5">Why are you using Firebase?</p>
                             </Link>
                             <p className="mb-4">
-                                Sed ut perspiciatis unde omnis iste natus error sit sed quia
-                                consequuntur magni voluptatem doloremque.
+                                Thanks to Firebase's easy-to-use SDK, ready-made UI libraries, and backend services, it is possible to set up the whole authentication process in just a couple of minutes. Firebase allows users to authenticate with their phone number, email, Google, and Facebook accounts (more options can be found here).
                             </p>
                             <div className="flex space-x-4">
                                 <Link
