@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext/UserContext';
 
 const SignIn = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleSignIn } = useContext(AuthContext);
     const handelFormSubmit = e => {
         e.preventDefault();
         const form = e.target;
@@ -108,6 +108,15 @@ const SignIn = () => {
                                             Sign Up
                                         </Link>
                                     </form>
+                                    <div className="mt-4 mb-2 sm:mb-4">
+                                        <button
+                                            onClick={googleSignIn}
+                                            className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-zinc-700 hover:bg-zinc-800 
+                                                 focus:shadow-outline focus:outline-none"
+                                        >
+                                            Google
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
