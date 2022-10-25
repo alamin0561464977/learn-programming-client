@@ -282,7 +282,7 @@ const Blogs = () => {
                     <div className="overflow-hidden transition-shadow duration-300 bg-slate-700 text-white rounded">
                         <Link to="" aria-label="Article">
                             <img
-                                src="https://images.pexels.com/photos/2123755/pexels-photo-2123755.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+                                src="https://netway.co.th/storage/transform/3731/IC646069.png"
                                 className="object-cover w-full h-64 rounded"
                                 alt=""
                             />
@@ -297,12 +297,11 @@ const Blogs = () => {
                                 className="inline-block mb-3 text-red-300 transition-colors duration-200 hover:text-deep-purple-accent-700"
                             >
                                 <p className="text-2xl font-bold leading-5">
-                                    Explore the beautiful
+                                    What is Node? How does Node work?
                                 </p>
                             </Link>
                             <p className="mb-4">
-                                Sed ut perspiciatis unde omnis iste natus error sit sed quia
-                                consequuntur magni voluptatem doloremque.
+                                It is a used as backend service where javascript works on the server-side of the application. This way javascript is used on both frontend and backend. Node. js runs on chrome v8 engine which converts javascript code into machine code, it is highly scalable, lightweight, fast, and data-intensive. Working of Node.
                             </p>
                             <div className="flex space-x-4">
                                 <Link
