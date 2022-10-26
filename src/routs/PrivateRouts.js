@@ -5,7 +5,7 @@ import SignIn from '../Pages/SignIn/SignIn';
 
 const PrivateRouts = ({ children }) => {
     const { user, loader } = useContext(AuthContext);
-    if (user.emailVerified) {
+    if (user?.emailVerified) {
         return children;
     }
     else if (loader) {

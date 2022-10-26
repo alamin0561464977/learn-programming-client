@@ -1,10 +1,15 @@
+import { getAuth, sendEmailVerification, updateProfile } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext/UserContext';
+import { app } from '../../firebase/firebase.init';
+
+const auth = getAuth(app);
 
 const SignUp = () => {
     const { signUp } = useContext(AuthContext);
+
     const handelFormSubmit = e => {
         e.preventDefault();
         const form = e.target;
@@ -12,10 +17,19 @@ const SignUp = () => {
         const photoUrl = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password, name, photoUrl)
         signUp(email, password)
             .then(({ user }) => {
-
+                updateProfile(auth.currentUser, {
+                    displayName: `${name}`, photoURL: `${photoUrl}`
+                }).then(() => {
+                    sendEmailVerification(auth.currentUser)
+                        .then(() => {
+                            // Email verification sent!
+                            // ...
+                        });
+                }).catch((error) => {
+                    console.log(error)
+                });
             })
             .catch(error => {
                 console.log(error)

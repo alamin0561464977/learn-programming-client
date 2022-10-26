@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { createContext } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 import { app } from '../../firebase/firebase.init';
 import { useEffect } from 'react';
 
@@ -25,6 +25,10 @@ const UserContext = ({ children }) => {
         setLoader(true);
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider);
+    };
+    const handelSignOut = () => {
+        signOut(auth);
+        console.log('alamin')
     }
 
 
@@ -36,7 +40,14 @@ const UserContext = ({ children }) => {
         return () => unsubscribe();
     }, [])
 
-    const authInfo = { user, loader, signUp, signIn, googleSignIn };
+    const authInfo = {
+        user,
+        loader,
+        signUp,
+        signIn,
+        googleSignIn,
+        handelSignOut
+    };
     return (
         <div>
             <AuthContext.Provider value={authInfo}>
