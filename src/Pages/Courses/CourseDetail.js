@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import { useEffect } from 'react';
+import { FaDownload } from 'react-icons/fa';
 
 const CourseDetail = () => {
     const courseDetails = useLoaderData();
@@ -34,8 +34,7 @@ const CourseDetail = () => {
                     </h2>
                     <p>{d}</p>
                     <div className="card-actions ">
-                        <button onClick={onButtonClick} className="btn btn-wide btn-primary">Button</button>
-                        <a href="pdf-test.pdf" download><button className="btn btn-wide btn-primary">Buon</button></a>
+                        <button onClick={onButtonClick} className="btn btn-wide btn-primary">Download PDF <FaDownload className='ml-2 text-black' /> </button>
                         <Link to={`payment`}>
                             <button className="btn btn-wide btn-secondary">Parses Course</button></Link>
                     </div>
