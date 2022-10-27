@@ -36,6 +36,7 @@ export const router = createBrowserRouter([
                     },
                     {
                         path: 'course-detail/:id/payment',
+                        loader: async ({ params }) => fetch(`https://learn-programming-server-two.vercel.app/course-detail/${params.id}`),
                         element: <PrivateRouts><Payment></Payment></PrivateRouts>
                     }
                 ]
