@@ -4,12 +4,16 @@
 }
 
 .home {
-  min-height: 75vh;
+  height: 75vh;
 }
 
 .bgImg {
-  height: 500px;
+  height: 350px;
   width: 800px;
+}
+
+.signIn {
+  height: 80vh;
 }
 
 .d-img {

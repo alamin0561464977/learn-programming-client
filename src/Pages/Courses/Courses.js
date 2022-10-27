@@ -8,7 +8,7 @@ const Courses = () => {
         <div>
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-5 lg:px-2 lg:py-">
                 <div className="max-w-xl mb-3 md:mx-auto sm:text-center lg:max-w-2xl md:mb-5">
-                    <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-green-500 sm:text-4xl md:mx-auto">
+                    <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-red-500 sm:text-4xl md:mx-auto">
                         <span className="relative inline-block">
                             <svg
                                 viewBox="0 0 52 24"
@@ -38,7 +38,7 @@ const Courses = () => {
                 </div>
                 <div className="grid gap-2 row-gap-2 lg:grid-cols-6">
                     <LeftSiteNev courses={courses}></LeftSiteNev>
-                    <div className="sm:mx-auto col-span-4 sm:text-center">
+                    <div className="sm:mx-auto col-span-4">
                         <Outlet></Outlet>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { createContext } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, GithubAuthProvider } from "firebase/auth";
 import { app } from '../../firebase/firebase.init';
 import { useEffect } from 'react';
 
@@ -11,21 +11,39 @@ const auth = getAuth(app);
 
 const UserContext = ({ children }) => {
     const [user, setUser] = useState({});
-    const [loader, setLoader] = useState(null);
+    const [loader, setLoader] = useState(true);
 
     const signIn = (email, password) => {
         setLoader(true);
         return signInWithEmailAndPassword(auth, email, password);
     };
+
+
     const signUp = (email, password) => {
         setLoader(true);
         return createUserWithEmailAndPassword(auth, email, password);
     };
+
     const googleSignIn = () => {
         setLoader(true);
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider);
+        const googleProvider = new GoogleAuthProvider();
+        signInWithPopup(auth, googleProvider);
     };
+
+
+    const gitHubSignIn = () => {
+        setLoader(true);
+        const gitHubProvider = new GithubAuthProvider();
+        signInWithPopup(auth, gitHubProvider)
+            .then(({ user }) => {
+                console.log(user);
+                setUser(user)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+    }
     const handelSignOut = () => {
         signOut(auth);
         console.log('alamin')
@@ -46,7 +64,8 @@ const UserContext = ({ children }) => {
         signUp,
         signIn,
         googleSignIn,
-        handelSignOut
+        handelSignOut,
+        gitHubSignIn
     };
     return (
         <div>

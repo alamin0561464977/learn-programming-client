@@ -1,7 +1,8 @@
 import { getAuth, sendEmailVerification, updateProfile } from 'firebase/auth';
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext/UserContext';
 import { app } from '../../firebase/firebase.init';
 
@@ -9,9 +10,12 @@ const auth = getAuth(app);
 
 const SignUp = () => {
     const { signUp } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const [error, setError] = useState("");
 
     const handelFormSubmit = e => {
         e.preventDefault();
+        setError('');
         const form = e.target;
         const name = form.name.value;
         const photoUrl = form.photoUrl.value;
@@ -24,15 +28,15 @@ const SignUp = () => {
                 }).then(() => {
                     sendEmailVerification(auth.currentUser)
                         .then(() => {
-                            // Email verification sent!
-                            // ...
+                            alert('Please Check You Gmail(spam) and Verify Email Then Reload website')
+                            navigate('/');
                         });
                 }).catch((error) => {
-                    console.log(error)
+                    setError(error.message);
                 });
             })
             .catch(error => {
-                console.log(error)
+                setError(error.message);
             })
         form.reset();
     }
@@ -49,14 +53,11 @@ const SignUp = () => {
                         <div className="flex flex-col items-center justify-between xl:flex-row">
                             <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
                                 <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                                    The quick, brown fox <br className="hidden md:block" />
-                                    jumps over a{' '}
-                                    <span className="text-teal-accent-400">lazy dog</span>
+                                    We will <br className="hidden md:block" />
+                                    <span className=' text-rose-700'>Learn Programming</span>
                                 </h2>
                                 <p className="max-w-xl mb-4 text-base text-gray-400 md:text-lg">
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                    accusantium doloremque laudan, totam rem aperiam, eaque ipsa
-                                    quae.
+                                    (We will Learn Programming) is a freemium educational website for learning coding online.(We will Learn Programming) offers courses covering all aspects of web development.
                                 </p>
                             </div>
                             <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
@@ -89,7 +90,6 @@ const SignUp = () => {
                                             </label>
                                             <input
                                                 placeholder="Photo URL"
-                                                required
                                                 type="text"
                                                 className="flex-grow text-black w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                                                 name="photoUrl"
@@ -125,8 +125,8 @@ const SignUp = () => {
                                                 name="password"
                                             />
                                         </div>
-                                        <p className=" text-md font-bold text-red-500">
-                                            We respect your privacy. Unsubscribe at any time.
+                                        <p className="font-bold text-red-500">
+                                            {error}
                                         </p>
                                         <div className="mt-4 mb-2 sm:mb-4">
                                             <button

@@ -1,9 +1,25 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const CourseDetail = () => {
     const courseDetails = useLoaderData();
-    const { name, image, d, price, id } = courseDetails;
+    const { name, image, d, price } = courseDetails;
+
+    const onButtonClick = () => {
+        // using Java Script method to get PDF file
+        fetch('pdf-test.pdf').then(response => {
+            response.blob().then(blob => {
+                // Creating new object of PDF file
+                const fileURL = window.URL.createObjectURL(blob);
+                // Setting various property values
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = 'pdf-test.pdf';
+                alink.click();
+            })
+        })
+    }
     return (
         <div>
             <div className="d-img card d-img bg-slate-600 shadow-xl">
@@ -18,7 +34,8 @@ const CourseDetail = () => {
                     </h2>
                     <p>{d}</p>
                     <div className="card-actions ">
-                        <button className="btn btn-wide btn-primary">Button</button>
+                        <button onClick={onButtonClick} className="btn btn-wide btn-primary">Button</button>
+                        <a href="pdf-test.pdf" download><button className="btn btn-wide btn-primary">Buon</button></a>
                         <Link to={`payment`}>
                             <button className="btn btn-wide btn-secondary">Parses Course</button></Link>
                     </div>
