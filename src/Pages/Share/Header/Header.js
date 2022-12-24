@@ -3,30 +3,16 @@ import { Link } from 'react-router-dom';
 import { } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../../Context/UserContext/UserContext';
-import logo from '../../../image/logo.png';
 
 const Header = () => {
-    const [theme, setTheme] = useState(false);
-
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
     const { user, handelSignOut } = useContext(AuthContext);
 
-    const handelTheme = () => {
-        if (theme) {
-            setTheme(false)
-        }
-        else (
-            setTheme(true)
-        )
-        console.log(theme, 'alamin')
-    }
 
     return (
         <div>
             <div className="bg-gray-900">
                 <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-                    <div className="relative flex items-center justify-between">
+                    <div className="relative lg:flex items-center justify-between">
                         <Link
                             to="/"
                             aria-label="Company"
@@ -38,7 +24,7 @@ const Header = () => {
                                 We will Learn Programming
                             </span>
                         </Link>
-                        <ul className="flex items-center hidden space-x-4 lg:flex">
+                        <ul className="items-center hidden space-x-4 lg:flex">
                             <li>
                                 <Link
                                     to="/"
@@ -90,7 +76,7 @@ const Header = () => {
                                 </a>
                             </li>
                         </ul>
-                        <ul className="flex items-center hidden space-x-2 lg:flex">
+                        <ul className="items-center hidden space-x-2 lg:flex">
                             <label className="swap swap-rotate">
                                 <input type="checkbox" />
                                 <svg className="swap-on fill-current w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" /></svg>
@@ -120,7 +106,7 @@ const Header = () => {
                                                         </div>
                                                     </div>
                                                 </Link>
-                                                <ul className="p-2 bg-slate-600">
+                                                <ul className="p-2 text-rose-700 bg-slate-600">
                                                     <li><a>{user?.displayName}</a></li>
                                                 </ul>
                                             </li>
@@ -150,36 +136,14 @@ const Header = () => {
                             }
                         </ul>
                         <div className="lg:hidden">
-                            <button
-                                aria-label="Open Menu"
-                                title="Open Menu"
-                                className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline"
-                                onClick={() => setIsMenuOpen(true)}
-                            >
-                                <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
-                                    <path
-                                        fill="currentColor"
-                                        d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
-                                    />
-                                    <path
-                                        fill="currentColor"
-                                        d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
-                                    />
-                                    <path
-                                        fill="currentColor"
-                                        d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
-                                    />
-                                </svg>
-                            </button>
-
                             <nav>
-                                <ul class="space-y-4">
+                                <ul class="space-y-4 flex items-center content-center">
                                     <li>
                                         <Link
                                             to="/"
                                             aria-label="Our product"
                                             title="Our product"
-                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 my-0 px-2"
                                         >
                                             Home
                                         </Link>
@@ -189,7 +153,7 @@ const Header = () => {
                                             to="/courses"
                                             aria-label="Our product"
                                             title="Our product"
-                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 my-0 px-2"
                                         >
                                             Courses
                                         </Link>
@@ -199,7 +163,7 @@ const Header = () => {
                                             href="/"
                                             aria-label="Our product"
                                             title="Our product"
-                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 my-0 px-2"
                                         >
                                             FAQ
                                         </a>
@@ -209,7 +173,7 @@ const Header = () => {
                                             to="/blog"
                                             aria-label="Product pricing"
                                             title="Product pricing"
-                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 my-0 px-2"
                                         >
                                             Blog
                                         </Link>
@@ -219,7 +183,7 @@ const Header = () => {
                                             href="/"
                                             aria-label="About us"
                                             title="About us"
-                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 my-0 px-2"
                                         >
                                             About us
                                         </a>
